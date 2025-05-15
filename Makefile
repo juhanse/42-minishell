@@ -1,3 +1,16 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: juhanse <juhanse@student.s19.be>           +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2025/05/16 01:50:05 by juhanse           #+#    #+#              #
+#    Updated: 2025/05/16 01:50:45 by juhanse          ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+
 NAME = minishell
 CC = cc
 CFLAGS = -Wall -Werror -Wextra -I/opt/homebrew/opt/readline/include
@@ -24,7 +37,7 @@ OBJS = $(addprefix $(OBJDIR), $(SRC:.c=.o))
 all: $(NAME)
 
 $(NAME): $(OBJS) $(LIBFT)
-	@$(CC) $(OBJS) -o $(NAME) -L$(LIBFTDIR) -L/opt/homebrew/opt/readline/lib -lft -lreadline
+	@$(CC) $(CFLAGS) $(OBJS) -o $(NAME) -L$(LIBFTDIR) -L/opt/homebrew/opt/readline/lib -lft -lreadline
 
 $(OBJDIR)%.o : $(SRCDIR)%.c
 	@mkdir -p $(dir $@)
